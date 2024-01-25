@@ -10,7 +10,7 @@ function MyPage() {
   useEffect(() => {
     async function fetchData() {
       const result = await axios(
-        'https://api-v3.mbta.com/alerts?sort=banner&filter%5Bactivity%5D=BOARD%2CEXIT%2CRIDE',
+        'https://api-v3.mbta.com/stops?filter[route_type]=1',
       );
       setAlerts(result.data.data);
     }
@@ -30,7 +30,7 @@ function MyPage() {
       >
         <Card.Body>
         <Card.Title>Alert</Card.Title>
-        <Card.Text>{alert.attributes.header}{alert.attributes.description}</Card.Text>
+        <Card.Text>{alert.attributes.description}</Card.Text>
         </Card.Body>
       </Card>
       ))}
